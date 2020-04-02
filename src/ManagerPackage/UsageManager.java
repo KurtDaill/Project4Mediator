@@ -1,7 +1,7 @@
-package ManagerPackage;
+package src.ManagerPackage;
 
-import TimeStamps.*;
-import FacilityPackage.*;
+import src.TimeStamps.*;
+import src.FacilityPackage.*;
 
 import java.util.*;
 public class UsageManager{

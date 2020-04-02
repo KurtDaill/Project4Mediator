@@ -5,21 +5,21 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.util.*;
 
 import org.junit.jupiter.api.Test;
-import FacilityPackage.*;
-import ManagerPackage.*;
-import TimeStamps.*;
+import src.FacilityPackage.*;
+import src.ManagerPackage.*;
+import src.TimeStamps.*;
 
 class facilityTest {
 	@Test
 	void testCapacity() {
-		Facilities fac = new Facilities(null, null, null, 150, null, "fac1");
+		Facility fac = new Facility(null, null, null, 150, null, "fac1");
 		assertEquals(fac.getCapacity(),150);
 	}
 	
 	@Test
 	void testProblem() { // This will test addProblem and getProblems()
 		List<String> problems = new ArrayList<String>();
-		Facilities fac = new Facilities(null, problems, null, 0, null, null);
+		Facility fac = new Facility(null, problems, null, 0, null, null);
 		String prob = "This is a problem";
 		fac.addProblem(prob); 
 		assertEquals(fac.getProblems().contains("This is a problem"), true);
@@ -28,7 +28,7 @@ class facilityTest {
 	@Test
 	void testDetails() {
 		List<String> details = new ArrayList<String>();
-		Facilities fac = new Facilities(details, null, null, 0, null, null);
+		Facility fac = new Facility(details, null, null, 0, null, null);
 		String det = "This is a detail";
 		fac.addDetail(det);
 		assertEquals(fac.getDetails().contains(det), true);
@@ -37,7 +37,7 @@ class facilityTest {
 	@Test
 	void testInspections() {
 		List<String> inspections = new ArrayList<String>();
-		Facilities fac = new Facilities(null, null, inspections, 0, null, null);
+		Facility fac = new Facility(null, null, inspections, 0, null, null);
 		String ins = "This is an inspection";
 		fac.addInspection(ins);
 		assertEquals(fac.getInspections().contains(ins), true);
@@ -46,7 +46,7 @@ class facilityTest {
 	@Test
 	void testStart() {
 		Date start = new Date();
-		Facilities fac = new Facilities(null, null, null, 0, start, null);
+		Facility fac = new Facility(null, null, null, 0, start, null);
 		assertEquals(fac.getStart(), start);
 	}
 	
@@ -59,7 +59,7 @@ class facilityTest {
 		startCal.set(Calendar.MINUTE, 0);
 		Date start = startCal.getTime();
 		List<String> problems = new ArrayList<String>();
-		Facilities fac = new Facilities(null,problems, null, 0, start, null);
+		Facility fac = new Facility(null,problems, null, 0, start, null);
 		String prob = "This is a problem";
 		fac.addProblem(prob); //adding 2 problems
 		fac.addProblem(prob);

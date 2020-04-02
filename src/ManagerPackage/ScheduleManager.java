@@ -1,6 +1,6 @@
-package ManagerPackage;
-import TimeStamps.*;
-import FacilityPackage.*;
+package src.ManagerPackage;
+import src.TimeStamps.*;
+import src.FacilityPackage.*;
 import java.util.*;
 
 public class ScheduleManager {

@@ -1,4 +1,4 @@
-package TimeStamps;
+package src.TimeStamps;
 import java.util.Date;
 
 public class UsageTimeStamp extends TimeStamp{

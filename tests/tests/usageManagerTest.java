@@ -7,9 +7,9 @@ import org.junit.jupiter.api.Test;
 import java.util.*;
 
 import org.junit.jupiter.api.Test;
-import FacilityPackage.*;
-import ManagerPackage.*;
-import TimeStamps.*;
+import src.FacilityPackage.*;
+import src.ManagerPackage.*;
+import src.TimeStamps.*;
 
 class usageManagerTest {
 
@@ -27,7 +27,7 @@ class usageManagerTest {
 		endCal.set(Calendar.HOUR, 4);
 		endCal.set(Calendar.MINUTE, 0);
 		Date end = endCal.getTime();
-		Facilities fac = new Facilities(null, null, null, 0, null, "fac1");
+		Facility fac = new Facility(null, null, null, 0, null, "fac1");
 		Map<String, List<TimeStamp>> schedule = new HashMap<String, List<TimeStamp>>();
 		Map<String, List<UsageTimeStamp>> usageSchedule = new HashMap<String, List<UsageTimeStamp>>();
 		List<TimeStamp> appt = new ArrayList<TimeStamp>();
@@ -55,7 +55,7 @@ class usageManagerTest {
 		endCal.set(Calendar.HOUR, 4);
 		endCal.set(Calendar.MINUTE, 0);
 		Date end = endCal.getTime();
-		Facilities fac = new Facilities(null, null, null, 0, null, "fac1");
+		Facility fac = new Facility(null, null, null, 0, null, "fac1");
 		Map<String, List<TimeStamp>> schedule = new HashMap<String, List<TimeStamp>>();
 		Map<String, List<UsageTimeStamp>> usageSchedule = new HashMap<String, List<UsageTimeStamp>>();
 		List<UsageTimeStamp> UsageTimeStampList = new ArrayList<UsageTimeStamp>();

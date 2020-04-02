@@ -1,18 +1,16 @@
 package tests;
 import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.*;
-
+import src.FacilityPackage.*;
+import src.ManagerPackage.*;
+import src.TimeStamps.*;
 import org.junit.jupiter.api.Test;
-import FacilityPackage.*;
-import ManagerPackage.*;
-import TimeStamps.*;
 
 class facilityTrackerTest {
 	@Test
 	void testFacilityProblems() {
 		List<String> problems = new ArrayList<String>();
-		Facilities fac = new Facilities(null, problems, null, 0, null, "fac1");
+		Facility fac = new Facility(null, problems, null, 0, null, "fac1");
 		String prob = "This is a problem";
 		fac.addProblem(prob); 
 		Map<String, List<TimeStamp>> schedule = new HashMap<String, List<TimeStamp>>();
@@ -30,7 +28,7 @@ class facilityTrackerTest {
 	@Test
 	void testFacilityInspections(){
 		List<String> inspections = new ArrayList<String>();
-		Facilities fac = new Facilities(null, null, inspections, 0, null, "fac1");
+		Facility fac = new Facility(null, null, inspections, 0, null, "fac1");
 		String inspection = "This is an inspection";
 		fac.addInspection(inspection); 
 		Map<String, List<TimeStamp>> schedule = new HashMap<String, List<TimeStamp>>();
@@ -48,7 +46,7 @@ class facilityTrackerTest {
 	@Test
 	void testFacilityDetails() {
 		List<String> details = new ArrayList<String>();
-		Facilities fac = new Facilities(details, null, null, 0, null, "fac1");
+		Facility fac = new Facility(details, null, null, 0, null, "fac1");
 		String inspection = "This is a detail";
 		fac.addDetail(inspection); 
 		Map<String, List<TimeStamp>> schedule = new HashMap<String, List<TimeStamp>>();
@@ -65,7 +63,7 @@ class facilityTrackerTest {
 	
 	@Test
 	void testFacilityCapacity() {
-		Facilities fac = new Facilities(null, null, null, 150, null, "fac1");
+		Facility fac = new Facility(null, null, null, 150, null, "fac1");
 		Map<String, List<TimeStamp>> schedule = new HashMap<String, List<TimeStamp>>();
 		ScheduleManager scheduleMan = new ScheduleManager(schedule, null, null, null);
 		Map<String, List<UsageTimeStamp>> usage = new HashMap<String, List<UsageTimeStamp>>();
@@ -87,7 +85,7 @@ class facilityTrackerTest {
 		startCal.set(Calendar.MINUTE, 0);
 		Date start = startCal.getTime();
 		List<String> problems = new ArrayList<String>();
-		Facilities fac = new Facilities(null, problems, null, 0, start, "fac1");
+		Facility fac = new Facility(null, problems, null, 0, start, "fac1");
 		String prob = "This is a problem";
 		fac.addProblem(prob); 
 		fac.addProblem(prob);

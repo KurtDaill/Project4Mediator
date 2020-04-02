@@ -1,23 +1,16 @@
-package FacilityPackage;
+package src.FacilityPackage;
 import java.util.*;
 
-public class Facilities {
-	private List<String> details = new ArrayList<String>();
-	private List<String> problemHistory = new ArrayList<String>();
-	private List<String> Inspections = new ArrayList<String>();
-	private int capacity;
-	private Date startDate = new Date();
-	private Date currentDate = new Date();
-	private String name;
+public abstract class Facilities {
+	protected List<String> details = new ArrayList<String>();
+	protected List<String> problemHistory = new ArrayList<String>();
+	protected List<String> Inspections = new ArrayList<String>();
+	protected int capacity;
+	protected Date startDate = new Date();
+	protected Date currentDate = new Date();
+	protected String name;
 
-	public Facilities(List<String> details, List<String> problemHistory, List<String> inspections, int capacity, Date startDate, String name) {
-		this.details = details;
-		this.problemHistory = problemHistory;
-		Inspections = inspections;
-		this.capacity = capacity;
-		this.startDate = startDate;
-		this.name = name;
-	}
+
 
 	public int getProblemRate() { // This will calculate the rate of problems based on the timeframe of the facility
 		int numberOfProblems = problemHistory.size(); 
