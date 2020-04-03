@@ -5,14 +5,12 @@ import src.FacilityPackage.*;
 
 import java.util.*;
 public class UsageManager{
-	Map<String, List<UsageTimeStamp>> usageDirectory;
-	Map<String, List<UsageTimeStamp>> usageHistoryDirectory;
+	Map<String, List<UsageTimeStamp>> usageDirectory = new HashMap<String, List<UsageTimeStamp>>();
+	Map<String, List<UsageTimeStamp>> usageHistoryDirectory = new HashMap<String, List<UsageTimeStamp>>();
 	FacilityTracker tracker;
 	ScheduleManager scheduler;
 
-	public UsageManager(Map<String, List<UsageTimeStamp>> usageDirectory, Map<String, List<UsageTimeStamp>> usageHistoryDirectory, FacilityTracker tracker, ScheduleManager scheduler) {
-		this.usageDirectory = usageDirectory;
-		this.usageHistoryDirectory = usageHistoryDirectory;
+	public UsageManager(FacilityTracker tracker, ScheduleManager scheduler) {
 		this.tracker = tracker;
 		this.scheduler = scheduler;
 	}

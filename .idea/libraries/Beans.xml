@@ -4,11 +4,29 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="..." class="...">
+    <bean id="tracker" class="src.FacilityPackage.FacilityTracker">
+        <constructor-arg  index="0" ref="scheduleMan"/>
+        <constructor-arg index="2" ref="maintMan"/>
+        <constructor-arg index="1" ref="useMan"/>
         <!-- collaborators and configuration for this bean go here -->
     </bean>
 
-    <bean id="..." class="...">
+    <bean id="maintMan" class="src.ManagerPackage.MaintenanceManager">
+        <constructor-arg index="0" ref="scheduleMan"/>
+        <constructor-arg index="1" ref="tracker"/>
+        <!-- collaborators and configuration for this bean go here -->
+    </bean>
+
+    <bean id="scheduleMan" class="src.ManagerPackage.ScheduleManager">
+        <constructor-arg index="0" ref= "useMan"/>
+        <constructor-arg index="1" ref="maintMan"/>
+        <constructor-arg index="2" ref="tracker"/>
+        <!-- collaborators and configuration for this bean go here -->
+    </bean>
+
+    <bean id="useMan" class="src.ManagerPackage.ScheduleManager">
+        <constructor-arg index="0" ref="tracker"/>
+        <constructor-arg index="1" ref="scheduleMan"/>
         <!-- collaborators and configuration for this bean go here -->
     </bean>
 

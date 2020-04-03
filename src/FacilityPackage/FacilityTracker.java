@@ -1,22 +1,16 @@
 package src.FacilityPackage;
 import java.util.*;
 import src.ManagerPackage.*;
-import src.FacilityPackage.*;
 public class FacilityTracker{
 	private Map<String, Facilities> facilityDirectory = new HashMap<String, Facilities>();
 	private ScheduleManager scheduleModule;
 	private UsageManager usageModule;
 	private MaintenanceManager maintModule;
 
-	public FacilityTracker(Map<String, Facilities> facilityDirectory, ScheduleManager scheduleModule, UsageManager usageModule, MaintenanceManager maintModule) {
-		this.facilityDirectory = facilityDirectory;
+	public FacilityTracker(ScheduleManager scheduleModule, UsageManager usageModule, MaintenanceManager maintModule) {
 		this.scheduleModule = scheduleModule;
 		this.usageModule = usageModule;
 		this.maintModule = maintModule;
-	}
-
-	public FacilityTracker(Map<String, Facilities> facilityDirectory) {
-		this.facilityDirectory = facilityDirectory;
 	}
 
 	public List<String> listFacilityProblems(String facName){

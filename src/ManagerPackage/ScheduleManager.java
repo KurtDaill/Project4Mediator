@@ -13,8 +13,7 @@ public class ScheduleManager {
         return currentDate;
     }
 
-    public ScheduleManager(Map<String, List<TimeStamp>> facilityDirectory, UsageManager useMan, MaintenanceManager mainMan, FacilityTracker tracker) {
-        this.facilityDirectory = facilityDirectory;
+    public ScheduleManager(UsageManager useMan, MaintenanceManager mainMan, FacilityTracker tracker) {
         this.useMan = useMan;
         this.mainMan = mainMan;
         this.tracker = tracker;
