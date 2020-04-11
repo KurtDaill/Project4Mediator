@@ -16,9 +16,9 @@ class facilityTrackerTest {
 		Map<String, List<TimeStamp>> schedule = new HashMap<String, List<TimeStamp>>();
 		ScheduleManager scheduleMan = new ScheduleManager(schedule, null, null, null);
 		Map<String, List<UsageTimeStamp>> usage = new HashMap<String, List<UsageTimeStamp>>();
-		UsageManager usageMan = new UsageManager(usage, null, null, null);
+		UsageManager usageMan = new UsageManager(usage, null,);
 		Map<String, List<MaintTimeStamp>> maint = new HashMap<String, List<MaintTimeStamp>>();
-		MaintenanceManager maintMan = new MaintenanceManager(null, maint, null, null, null);
+		MaintenanceManager maintMan = new MaintenanceManager(null, maint,);
 		Map<String, Facilities> facilityDir = new HashMap<String, Facilities>();
 		FacilityTracker fact = new FacilityTracker(facilityDir, scheduleMan ,usageMan, maintMan);
 		fact.addFacility(fac);
