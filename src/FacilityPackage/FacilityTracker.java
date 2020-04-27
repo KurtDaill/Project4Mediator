@@ -3,14 +3,10 @@ import java.util.*;
 import src.ManagerPackage.*;
 public class FacilityTracker{
 	private Map<String, Facilities> facilityDirectory = new HashMap<String, Facilities>();
-	private ScheduleManager scheduleModule;
-	private UsageManager usageModule;
-	private MaintenanceManager maintModule;
+	private Mediator med;
 
-	public FacilityTracker(ScheduleManager scheduleModule, UsageManager usageModule, MaintenanceManager maintModule) {
-		this.scheduleModule = scheduleModule;
-		this.usageModule = usageModule;
-		this.maintModule = maintModule;
+	public FacilityTracker(Mediator mediate) {
+		med = mediate;
 	}
 
 	public List<String> listFacilityProblems(String facName){
@@ -37,11 +33,8 @@ public class FacilityTracker{
 		lookUp(facName).getDetails().add(newDetail);
 	}
 
-	public void addFacility(Facilities newFac){
+	public void updateFacilities(Facilities newFac){
 		facilityDirectory.put(newFac.getName(), newFac);
-		scheduleModule.updateFacilities(newFac);
-		usageModule.updateFacilities(newFac);
-		maintModule.updateFacilities(newFac);
 	}
 
 	public Facilities lookUp(String facName){

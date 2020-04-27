@@ -7,12 +7,11 @@ public class MaintenanceManager {
 	private List<Tuple<String, TimeStamp>> pendingRequests = new LinkedList<Tuple<String, TimeStamp>>();
 	private Map<String, List<MaintTimeStamp>> maintDirectory = new HashMap<String, List<MaintTimeStamp>>();
 	private Map<String, List<MaintTimeStamp>> maintHistoryDirectory = new HashMap<String, List<MaintTimeStamp>>();
-	private ScheduleManager schedule;
-	private FacilityTracker tracker;
+	private Mediator med;
+	private Date currentDate;
 
-	public MaintenanceManager(ScheduleManager schedule, FacilityTracker tracker) {
-		this.schedule = schedule;
-		this.tracker = tracker;
+	public MaintenanceManager(Mediator mediate) {
+		med = mediate;
 	}
 
 	void scheduleMaintenance(String facName, MaintTimeStamp maintenance) {
@@ -49,7 +48,7 @@ public class MaintenanceManager {
 	}
 
 	public int calculateDownTimeForFacility(String facName) { //prints out the amount of time the building was not used while it was open
-		int timeSinceBuildingOpen = tracker.lookUp(facName).getStart().compareTo(schedule.getDate());
+		int timeSinceBuildingOpen = med.lookUp(facName).getStart().compareTo(currentDate);
 		List<MaintTimeStamp> hist = maintHistoryDirectory.get(facName);
 		int totalDownTime = 0;
 		for(int i = 0; i < hist.size(); i++) {
@@ -60,7 +59,8 @@ public class MaintenanceManager {
 		return DownTime;
 	}
 
-	void update(Date currentDate){
+	void update(Date newDate){
+		currentDate = newDate;
 		for(Map.Entry<String, List<MaintTimeStamp>> entry : maintDirectory.entrySet()) {
 			List<MaintTimeStamp> schedule = entry.getValue();
 			for (int i = 0; i < schedule.size(); i++) {
